@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Mustache Demo</title>
+</head>
+<body>
+<h1>##Mustache Demo##</h1>
+<script type="text/template" id="tpl">
+    <h1>Hello {{name}}</h1>
+    <p>
+        You have just won ${{value}}!
+        {{#in_ca}}
+        Well, ${{taxed_value}}, after taxes.
+        {{/in_ca}}
+    </p>
+</script>
+<script type="text/javascript" src="../lib/mustache.js"></script>
+<script type="text/javascript" src="../lib/jquery.js"></script>
+<script type="text/javascript">
+    var tpl = $("#tpl").html();
+    Mustache.parse(tpl);
+    var data = {
+        "name": "Chris",
+        "value": 10000,
+        "taxed_value": 10000 - (10000 * 0.4),
+        "in_ca": true
+    };
+    var dataTpl = Mustache.render(tpl, data);
+    $('body').append(dataTpl);
+</script>
+</body>
+</html>

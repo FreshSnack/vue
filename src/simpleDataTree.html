@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Data Tree</title>
+    <link rel="stylesheet" href="../lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../lib/zTree/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="../lib/zTree/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="../lib/zTree/js/jquery.ztree.exedit.js"></script>
+</head>
+<body>
+
+<div id='tree' style="margin: auto;width: 200px;" class="ztree"></div>
+
+<script>
+    var setting = {
+        data: {
+            keep: {
+                parent:true,
+                leaf: true
+            },
+            simpleData: {
+                enable:true,
+                idKey: "id",
+                pIdKey: 'pid',
+                rootPId: '0'
+            },
+            key: {
+                name:'name',
+                title:''
+            }
+        },
+        view: {
+            showLine:false,
+            showIcon:true,
+            txtSelectedEnable:true
+        }
+    };
+
+    var data = [
+        {id:'1', pid:'09', name:'n1', open: true},
+        {id:'11', pid:'1', name:'n11', open: true},
+        {id:'12', pid:'1', name:'n12'},
+        {id:'111', pid:'11', name:'n111'},
+        {id:'112', pid:'11', name:'n112'},
+        {id:'2', pid:'', name:'n2', open: true, isParent:true}
+    ];
+
+    $.fn.zTree.init($('#tree'), setting, data);
+</script>
+</body>
+</html>

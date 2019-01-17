@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../lib/zTree/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="../lib/zTree/js/jquery.ztree.core.js"></script>
+</head>
+<body>
+
+<div id='tree' class="ztree" style="margin: auto;width: 200px"></div>
+
+<script type="text/javascript">
+    var setting = {
+
+    };
+
+    var zNodes = {
+        name: '网站导航',
+        open: true,
+        children:[
+            {name: 'baidu'},
+            {name: 'google'},
+            {name: 'sina'}
+        ]
+    };
+
+    $.fn.zTree.init($('#tree'), setting, zNodes);
+
+</script>
+</body>
+</html>
